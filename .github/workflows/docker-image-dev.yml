@@ -53,7 +53,7 @@ jobs:
             fi
 
             # Настройка директории проекта
-            PROJECT_DIR="root/gitDjangoStripe"
+            PROJECT_DIR="gitDjangoStripe"
             REPO_URL="git@github.com:NemoKam/DjangoStripe.git"
             
             if [ ! -d "$PROJECT_DIR" ]; then
