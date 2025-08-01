@@ -53,13 +53,12 @@ jobs:
             fi
 
             # Настройка директории проекта
-            PROJECT_DIR="/gitDjangoStripe"
+            PROJECT_DIR="root/gitDjangoStripe"
             REPO_URL="git@github.com:NemoKam/DjangoStripe.git"
             
             if [ ! -d "$PROJECT_DIR" ]; then
               echo "Клонирование репозитория..."
               sudo mkdir -p $PROJECT_DIR
-              sudo chown -R $USER:$USER $PROJECT_DIR
               git clone $REPO_URL $PROJECT_DIR
               cd $PROJECT_DIR
               git checkout dev
