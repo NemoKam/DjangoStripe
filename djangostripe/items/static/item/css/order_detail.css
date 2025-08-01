@@ -1,0 +1,121 @@
+.item {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.item_name {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.item_description {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.item_price {
+    color: #28a745;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+form {
+    margin: auto;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.order_summary {
+    background-color: #f9f9f9;
+    padding: 20px;
+    max-width: 480px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+.order_price,
+.order_discount_percents,
+.order_tax_percents,
+.order_final_price {
+    margin: 10px 0;
+}
+
+.order_price {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.order_discount_percents {
+    font-size: 16px;
+    color: #c0392b;
+}
+
+.order_tax_percents {
+    font-size: 16px;
+    color: #f39c12;
+}
+
+.order_final_price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #27ae60;
+    margin-top: 20px;
+}
+
+#card_element {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fafafa;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6772e5;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5469d4;
+}
+
+#payment_result {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+}

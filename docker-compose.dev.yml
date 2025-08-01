@@ -1,0 +1,54 @@
+services:
+  django:
+    build:
+      context: djangostripe
+      dockerfile: Dockerfile
+    container_name: djangostripe_django
+    env_file:
+      - .dev.env
+    volumes:
+      - static_volume:/djangostripe/static
+      - logs_volume:/logs:rw
+    depends_on:
+      - db
+    networks:
+      - djangostripe_network
+    restart: always
+
+  db:
+    container_name: djangostripe_db
+    image: postgres:17.4-bookworm
+    restart: always
+    env_file:
+      - .dev.env
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    networks:
+      - djangostripe_network
+
+  nginx:
+    image: nginx:1.27.0-alpine3.19
+    container_name: djangostripe_nginx
+    volumes:
+      - ./nginx/nginx-dev.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/mime.types:/etc/nginx/mime.types:ro
+      - ./nginx/errors/:/errors:ro
+      - static_volume:/static:ro
+      - logs_volume:/logs:rw
+    networks:
+      - djangostripe_network
+    depends_on:
+      - django
+      - db
+    ports:
+      - "8000:80"
+      - "8001:8001"
+    restart: always
+
+volumes:
+  static_volume:
+  db_volume:
+  logs_volume:
+
+networks:
+  djangostripe_network:

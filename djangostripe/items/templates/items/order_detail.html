@@ -1,0 +1,37 @@
+{% extends "core/base.html" %}
+{% load core %}
+{% load static %}
+
+{% block title %}Заказ{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'item/css/order_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% for item in order.items.all %}
+        <div class="item" id="{{ item.id }}">
+            <h1 class="item_name">{{ item.name }}</h1>
+            <p class="item_description">{{ item.description }}</p>
+            <p class="item_price">Цена: {{ item.price|format_number }} {{ item.currency }}</p>
+        </div>
+    {% endfor %}
+    <form id="payment_form" data-order-id="{{ order.id }}">
+        <div class="order_summary">
+            <h4 class="order_price">Сумма заказа: {{ order.price_items|format_number }} {{ order.currency }}</h4>
+            <h3 class="order_discount_percents">Скидка: {{ order.discount.percents }}%</h3>
+            <h3 class="order_tax_percents">Налог: {{ order.tax.percents }}%</h3>
+            <h2 class="order_final_price">Финальная цена: {{ order.price_after_tax|format_number }} {{ order.currency }}</h2>
+        </div>
+        <div id="card_element"><!-- Элемент для ввода карты --></div>
+        <button type="submit" id="submit">Оплатить</button>
+        <div id="payment_result"></div>
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+<!-- Stripe JS -->
+<script src="https://js.stripe.com/basil/stripe.js"></script>
+
+<script src="{% static 'item/js/order_detail.js' %}"></script>
+{% endblock %}
